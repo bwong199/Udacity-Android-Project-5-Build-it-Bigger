@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger;
+package com.udacity.gradle.builditbiggerfree;
 
 import android.app.Application;
 import android.content.Context;

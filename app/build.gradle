@@ -5,13 +5,24 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.udacity.gradle.builditbigger"
+//        applicationId "com.udacity.gradle.com.udacity.gradle.builditbiggerfree"
         minSdkVersion 10
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
     }
+
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.builditbiggerfree"
+
+        }
+        paid {
+            applicationId "builditbiggerpaid"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false

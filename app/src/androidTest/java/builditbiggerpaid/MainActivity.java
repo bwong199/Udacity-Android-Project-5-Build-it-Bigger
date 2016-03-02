@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger;
+package builditbiggerpaid;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.benwong.androidjokelibrary.JokeActivity;
 import com.example.Joker;
+import com.udacity.gradle.builditbiggerfree.R;
 
 
 public class MainActivity extends ActionBarActivity {

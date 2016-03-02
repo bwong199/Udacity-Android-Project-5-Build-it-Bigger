@@ -19,7 +19,7 @@ android {
 
         }
         paid {
-            applicationId "builditbiggerpaid"
+            applicationId "com.udacity.gradle.builditbiggerpaid"
         }
     }
 

@@ -13,6 +13,8 @@ import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
 
 /**
  * Created by benwong on 2016-02-20.
@@ -52,6 +54,8 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 //            return e.getMessage();
 //        }
 
+        Log.i("Test connection", String.valueOf(checkConnection(3000)));
+
         try {
             return myApiService.sayHi().execute().getData();
         } catch (IOException e) {
@@ -68,10 +72,23 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
         assert result.getClass().getName().equals(String.class);
 
-        Log.i("asyncTest", String.valueOf(result.getClass().getName()));
+        Log.i("Test Async Result", String.valueOf(result.getClass().getName()));
 
-        Log.i("asyncTest", String.valueOf(result.getClass().getName().equals(String.class.getName())));
+        Log.i("Test Async Result", String.valueOf(result.getClass().getName().equals(String.class.getName())));
 
         assert result.getClass().getName().equals(String.class.getName());
+    }
+
+    private boolean checkConnection(int timeout){
+        try{
+            URL myUrl = new URL("http://10.0.3.2:8080/_ah/api/");
+            URLConnection connection = myUrl.openConnection();
+            connection.setConnectTimeout(timeout);
+            connection.connect();
+
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

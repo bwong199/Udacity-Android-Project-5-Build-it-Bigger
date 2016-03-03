@@ -3,6 +3,7 @@ package com.udacity.gradle.builditbiggerpaid;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.Joker;
+
+import java.util.concurrent.ExecutionException;
 
 
 /**
@@ -54,5 +57,14 @@ public class MainActivityFragment extends Fragment {
 
     public void getJokesFromGCE(){
         new EndpointsAsyncTask().execute(new Pair<Context, String>(getActivity(), "..."));
+
+
+        try {
+            Log.i("test",new EndpointsAsyncTask().execute(new Pair<Context, String>(getActivity(), "...")).get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 }

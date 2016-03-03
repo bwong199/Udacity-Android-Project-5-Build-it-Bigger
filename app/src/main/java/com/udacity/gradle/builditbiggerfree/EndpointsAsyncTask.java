@@ -2,6 +2,7 @@ package com.udacity.gradle.builditbiggerfree;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.annotation.VisibleForTesting;
 import android.util.Log;
 import android.util.Pair;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ import java.net.URLConnection;
 public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
+    @VisibleForTesting
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
@@ -93,6 +95,18 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    interface TaskFactoryInterface {
+        EndpointsAsyncTask getTask();
+    }
+
+    @VisibleForTesting
+    protected class TaskFactory implements  TaskFactoryInterface{
+        @Override
+        public EndpointsAsyncTask getTask() {
+            return new EndpointsAsyncTask();
         }
     }
 }

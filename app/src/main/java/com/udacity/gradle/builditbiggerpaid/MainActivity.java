@@ -33,6 +33,8 @@ public class MainActivity extends ActionBarActivity {
                 getJokesFromGCE();
             }
         });
+
+
     }
 
     @Override

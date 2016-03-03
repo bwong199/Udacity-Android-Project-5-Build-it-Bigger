@@ -46,4 +46,5 @@ dependencies {
     freeCompile 'com.google.android.gms:play-services:8.4.0'
     compile project(path: ':JokesBackend', configuration: 'android-endpoints')
 
+    compile 'com.google.appengine:appengine-api-1.0-sdk:1.9.18'
 }

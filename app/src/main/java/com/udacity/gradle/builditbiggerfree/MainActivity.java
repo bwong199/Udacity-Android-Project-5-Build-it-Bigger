@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.benwong.androidjokelibrary.JokeActivity;
 import com.example.Joker;
+import com.udacity.gradle.builditbiggerpaid.R;
 
 
 public class MainActivity extends ActionBarActivity {

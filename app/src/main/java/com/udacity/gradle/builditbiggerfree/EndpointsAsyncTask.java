@@ -12,6 +12,8 @@ import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
+import junit.framework.Assert;
+
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -19,7 +21,7 @@ import java.net.URLConnection;
 /**
  * Created by benwong on 2016-02-20.
  */
-class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
 
@@ -56,6 +58,8 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
         Log.i("Test connection", String.valueOf(checkConnection(3000)));
 
+        Assert.assertEquals(checkConnection(3000),true);
+
         try {
             return myApiService.sayHi().execute().getData();
         } catch (IOException e) {
@@ -76,7 +80,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
         Log.i("Test Async Result", String.valueOf(result.getClass().getName().equals(String.class.getName())));
 
-        assert result.getClass().getName().equals(String.class.getName());
+        Assert.assertEquals(result.getClass().getName(), String.class.getName());
     }
 
     private boolean checkConnection(int timeout){

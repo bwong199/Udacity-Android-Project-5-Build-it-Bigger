@@ -1,9 +1,7 @@
 package com.udacity.gradle.builditbiggerfree;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +11,7 @@ import android.widget.TextView;
 import com.example.Joker;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.udacity.gradle.builditbiggerpaid.R;
 
 
 /**
@@ -42,19 +41,19 @@ public class MainActivityFragment extends Fragment {
         Joker myJoker = new Joker();
         textView.setText(myJoker.getJoke());
 
-        getJokesGCE = (Button) root.findViewById(R.id.getJokes);
-
-        getJokesGCE.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getJokesFromGCE();
-            }
-        });
+//        getJokesGCE = (Button) root.findViewById(R.id.getJokes);
+//
+//        getJokesGCE.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getJokesFromGCE();
+//            }
+//        });
 
         return root;
     }
 
-    public void getJokesFromGCE(){
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(getActivity(), "..."));
-    }
+//    public void getJokesFromGCE(){
+//        new EndpointsAsyncTask().execute(new Pair<Context, String>(getActivity(), "..."));
+//    }
 }
